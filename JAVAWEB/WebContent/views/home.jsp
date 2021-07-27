@@ -75,7 +75,7 @@
 			<jsp:include page="left.jsp" />
 			<div class="col-sm-9">
 				<div class="row">
-					<c:forEach items="${product}" var="product">
+					<c:forEach items="${productList}" var="product">
 						<div class="col-12 col-md-6 col-lg-4">
 							<div class="card bg-light mb-3">
 								<div class="card">

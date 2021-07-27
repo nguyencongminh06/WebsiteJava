@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 
 <mt:admin_template title="Dashboard">
@@ -395,7 +395,7 @@
                         <td>2</td>
                         <td>Minerva Hooper</td>
                         <td>$23,789</td>
-                        <td>Curaçao</td>
+                        <td>CuraÃ§ao</td>
                       </tr>
                       <tr>
                         <td>3</td>
