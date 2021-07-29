@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import beans.Account;
 import beans.Category;
 import beans.Product;
 import model.SQLServerConnUtils_SQLJDBC;
@@ -72,6 +73,55 @@ public class docDB {
 		} catch (Exception e) {
 		}
 		return null;
+	}
+	public Account Login(String user, String pass) {
+		String query = "SELECT * FROM `user` WHERE username = ? and password = ?";
+		try {			
+			conn = new SQLServerConnUtils_SQLJDBC().getJDBCConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, user);
+			ps.setString(2, pass);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				return new Account(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5)) ;
+			}
+		}catch (Exception ex) {
+	}
+	 return null;
+}
+	public Account CheckAccountExist(String user) {
+		String query = "SELECT * FROM `user` WHERE username = ?";
+		try {			
+			conn = new SQLServerConnUtils_SQLJDBC().getJDBCConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, user);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				return new Account(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5)) ;
+			}
+		}catch (Exception ex) {
+	}
+	 return null;
+}
+	public void signup(String user, String pass){
+		String query ="INSERT INTO `user`(`Username`, `Password`, `IsSell`, `IsAdmin`) VALUES ('?','?',0,0)";
+		try {
+			Connection conn = new SQLServerConnUtils_SQLJDBC().getJDBCConnection();// mo ket noi voi sql
+			ps = conn.prepareStatement(query);
+			ps.setString(1, user);
+			ps.setString(2, pass);
+			ps.executeUpdate();
+		}catch (Exception e) {
+	
+		}
 	}
 
 	public void deleteProduct(String id){

@@ -38,7 +38,7 @@ public class HomeServlet extends HttpServlet {
         //b1: get data from dao
         docDB db = new docDB();
         List<Product> list = db.getAllproduct();
-        List<Category> listC = db.getAllcategory();
+		List<Category> listC = db.getAllcategory(); 
         Product last = db.getLast();
         
         //b2: set data to jsp

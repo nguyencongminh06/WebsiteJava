@@ -17,16 +17,16 @@
 						<a class="dropdown-item" href="category?idc=${category.idc}">${category.catename}</a>
 					</c:forEach>
 				</div></li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbardrop"
-				data-toggle="dropdown">Dịch Vụ</a>
-				<div class="dropdown-menu bg-dark">
-					<a class="dropdown-item" href="#">Bảo hành</a> <a
-						class="dropdown-item" href="#">Đại lý</a> <a class="dropdown-item"
-						href="#">Đổi trả</a>
-				</div></li>
-			<li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Tin Tức</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
+			<c:if test="${sessionScope.acc.isAdmin == 1}">
+			<li class="nav-item"><a class="nav-link" href="admin/dashboard">Admin</a></li>
+			</c:if>
+			<c:if test="${sessionScope.acc != null}">
+			<li class="nav-item"><a class="nav-link" href="LogOutControl">Thoát</a></li>
+			</c:if>
+			<c:if test="${sessionScope.acc == null}">
+			<li class="nav-item"><a class="nav-link" href="views/admin/login1.jsp">Đăng Nhập</a></li>
+			</c:if>
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<form action="search" method="post" class="form-inline my-2 my-lg-0">
@@ -44,5 +44,6 @@
 				</a>
 			</form>
 		</ul>
+		<li class="nav-item"><a class="nav-link" href="#">Hello ${sessionScope.acc.username}</a></li>
 	</div>
 </nav>
