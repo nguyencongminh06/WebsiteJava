@@ -16,7 +16,8 @@
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="./css/test.css">
+<link rel="stylesheet" href="./css/stylehome.css">
+<link rel="stylesheet" href="./css/styleinclude.css">
 <title>HOME</title>
 </head>
 <body>
@@ -85,15 +86,14 @@
 									</image>
 									<div class="card-body">
 										<h4 class="card-title">
-											<a href="detail?id=${product.id}"
-												title="View Product">${product.productname}</a>
+											<a href="detail?id=${product.id}" title="View Product">${product.productname}</a>
 										</h4>
 										<p class="card-text show_txt">${product.price}VND</p>
 										<div class="row">
 											<div class="col">
-												<a href="addToCart" class="btn btn-danger btn-block">Thêm vào
+												 <a href="AddToCart?id=${product.id }" class="btn btn-danger btn-block">Thêm vào
 													giỏ hàng </a>
-												<p></p>
+												<p></p> 
 											</div>
 											<div class="col">
 												<a href="detail?id=${product.id}"

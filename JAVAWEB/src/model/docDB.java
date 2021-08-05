@@ -30,7 +30,7 @@ public class docDB {
 			while (rs.next()) {
 				list.add(new Product(rs.getString(1), 
 						rs.getString(2), 
-						rs.getFloat(3), 
+						rs.getLong(3), 
 						rs.getString(4),
 						rs.getString(5),
 						rs.getString(6)));
@@ -65,7 +65,7 @@ public class docDB {
 			while (rs.next()) {
 				return new Product(rs.getString(1), 
 						rs.getString(2), 
-						rs.getFloat(3), 
+						rs.getLong(3), 
 						rs.getString(4), 
 						rs.getString(5),
 						rs.getString(6));
@@ -164,7 +164,7 @@ public class docDB {
 			while(rs.next()){
 				list.add(new Product(rs.getString(1), 
 						rs.getString(2), 
-						rs.getFloat(3), 
+						rs.getLong(3), 
 						rs.getString(4), 
 						rs.getString(5),
 						rs.getString(6)));
@@ -185,7 +185,7 @@ public class docDB {
 			while(rs.next()){
 				list.add(new Product(rs.getString(1), 
 						rs.getString(2), 
-						rs.getFloat(3), 
+						rs.getLong(3), 
 						rs.getString(4), 
 						rs.getString(5),
 						rs.getString(6)));
@@ -193,6 +193,29 @@ public class docDB {
 		}catch(Exception e) {
 		}
 		return list;
+	}
+	
+	public Product get(String id) {
+		String sql = "select * from product where Id like ?";
+		Connection conn = new SQLServerConnUtils_SQLJDBC().getJDBCConnection();
+		Product product = null;
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				product = new Product();
+				product.setId(rs.getString(1));
+				product.setProductname(rs.getString(2)); 
+				product.setPrice(rs.getLong(3));
+				product.setDetail(rs.getString(4));
+				product.setImage(rs.getString(5));
+				return product;			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	
@@ -206,7 +229,7 @@ public class docDB {
 
         while (rs.next()) {
             String productname = rs.getString("Product");
-            Float price = rs.getFloat("Price");
+            Long price = rs.getLong("Price");
             String detail = rs.getString("Detail");
             String image = rs.getString("Image");
             Product product = new   Product(id, productname,price,detail,image);
@@ -214,6 +237,8 @@ public class docDB {
         }
         return null;
     }
+	
+	
 	
 	public void updateProduct(String productname, String price, String detail, String image, String category, String id) {
 		String sql = "update  product set Product=?, Price=?, Detail=?, Image=?, idc=? where Id=?";
@@ -230,17 +255,16 @@ public class docDB {
 		}catch(Exception e){
 			
 		}
-	}
-	
-	
-	
+	}	
 	
 	public static void main(String[] args) {
 		docDB db = new docDB();
-		List<Product> list = db.getAllproduct();
-		for(Product o : list) {
-			System.out.println(o);
-		}
+//		List<Product> list = db.getAllproduct();
+//		for(Product o : list) {
+//			System.out.println(o);
+//		}
+		Product list = db.get("id");
+			System.out.println(list);
 	}
 	
 }

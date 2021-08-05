@@ -3,30 +3,15 @@ package beans;
 public class Product {
 	private String id;
 	private String productname;
-	private float price;
+	private long price;
 	private String detail;
 	private String image;
 	private String idc;
-	private int amount;
 
 	public Product() {
 	}
-	
-	public Product(String productname, float price, String detail, String image) {
-		this.productname = productname;
-		this.price = price;
-		this.detail = detail;
-		this.image = image;
-	}
 
-	public Product(String id, String name, String image, float price, int amount) {
-        this.id = id;
-        this.productname = name;
-        this.image = image;
-        this.price = price;
-        this.amount = amount;
-    }
-	public Product(String id, String productname, float price, String detail, String image) {
+	public Product(String id, String productname, long price, String detail, String image) {
 		super();
 		this.id = id;
 		this.productname = productname;
@@ -35,7 +20,7 @@ public class Product {
 		this.image = image;
 	}
 
-	public Product(String id, String productname, float price, String detail, String image, String idc) {
+	public Product(String id, String productname, long price, String detail, String image, String idc) {
 		this.id = id;
 		this.productname = productname;
 		this.price = price;
@@ -60,11 +45,11 @@ public class Product {
 		this.productname = productname;
 	}
 
-	public float getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 
@@ -91,11 +76,4 @@ public class Product {
 	public void setIdc(String idc) {
 		this.idc = idc;
 	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-	
 }

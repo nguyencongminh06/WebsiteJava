@@ -1,0 +1,23 @@
+.navbar{
+	background-color: #30333C;
+}
+.navbar a{
+	float: left;
+	display: block;
+	color: #f2f2f2;	
+	text-decoration: none;	
+}
+.navbar a:hover{
+	color: red;
+	font-weight: bold;	
+}
+
+.footer{
+	background-color: black;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.tieude{
+	height: 300px;
+}

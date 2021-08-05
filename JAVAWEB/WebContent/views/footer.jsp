@@ -47,17 +47,17 @@
 		<br>
 		<div class="row">
 			<div class="col-md-6">
-				<h5>CÔNG TY CỔ PHẦN TM-DV-SX VIỆT THƯƠNG</h5>
+				<h5>CÔNG TY CỔ PHẦN TM-DV-SX DOLCE</h5>
 				<P style="font-size: 15px; color: white">
 					Địa chỉ: 176 Trần Phú - Tp Huế<br> Điện thoại: <span
 						style="color: red">0896 304 678</span><br> Hotline: <span
 						style="color: red">1800 8198</span><br> Email: Email:
-					musical@gmail.com
+					dolce@gmail.com
 				</P>
 			</div>
 			<div class="col-md-6">
 				<h5>CÁC PHƯƠNG THỨC THANH TOÁN</h5>
-				<img src="image/na.png" alt="@@@">
+				<img src="image/na.png" alt="">
 			</div>
 		</div>
 	</div>
